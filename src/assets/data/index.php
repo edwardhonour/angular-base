@@ -26,13 +26,12 @@ $db=$X->connectACN();
 // APPLICATION SPECIFIC CODE BELOW - CONNECT STRING CODE ABOVE
 //=======================================================================================
 
-require_once('class.forms.php');
 require_once('class.users.php');
 
 $A=new USERS();
 
 //-- a way to test the code without posting.
-if (isset($_GET['q'])) $data['q']=$_GET['q']
+if (isset($_GET['q'])) $data['q']=$_GET['q'];
 
 // Get the Data from the POST.  Note:  This is not how PHP normally sends POST data. The 
 // data from the angular post will be in a variable called data.
