@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 import { FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
@@ -7,11 +7,11 @@ import { Navigation } from 'app/core/navigation/navigation.types';
 import { NavigationService } from 'app/core/navigation/navigation.service';
 
 @Component({
-  selector: 'app-list-template',
-  templateUrl: './list-template.component.html',
-  styleUrls: ['./list-template.component.scss']
+  selector: 'app-dynamic-list',
+  templateUrl: '../dynamic-template/dynamic-template.component.html',
+  styleUrls: ['./dynamic-list.component.scss']
 })
-export class ListTemplateComponent implements OnInit, OnDestroy
+export class DynamicListComponent implements OnInit, OnDestroy
 {
   //--
   //-- Variables
@@ -25,35 +25,57 @@ export class ListTemplateComponent implements OnInit, OnDestroy
   email: any;
   user: any;
   index: any;
-    /**
-     * Constructor
-     */
+  title: any;
 
-     constructor(
+  columnHeaders: any;
+  columnFields: any;
+  columnCount: any;
+  link: any;
+  params: any;
+  rowsPerPage: any;
+  nStyle: any;
+
+  constructor(
       private _activatedRoute: ActivatedRoute,
       private _navigationService: NavigationService,
       private _fuseMediaWatcherService: FuseMediaWatcherService,
       private _fuseNavigationService: FuseNavigationService,
   ) { }
+    
+  ngOnInit(): void
+  {      
+      // ED'S DYNAMIC FORM 
+      // Fill these out and 
+      this.title="System Users - Dynamic";
+      this.columnCount=5;
+      this.columnHeaders=[
+          "User Id","User Name","Full Name","Region", "Role",""
+      ];
+      this.columnFields=[
+          "USER_ID","USER_NAME","FULL_NAME","REGION_ID","ROLE"
+      ];
+      this.link="/dashboard-template";
+      this.params=[ "USER_ID" ];
+      this.nStyle={
+        columnName: "INACTIVE",     // if this column
+        columnValue: "Y",           // equals this value
+        newValue: "#F9C6B8",        // background color is set to this.
+        defaultValue: ""            // otherwise its set to this.
+      };
+      this.rowsPerPage=25;
 
-    /**
-     * On init
-     */
-    ngOnInit(): void
-    {      
-            this._activatedRoute.data.subscribe(({ 
-              data, menudata, userdata })=> { 
-              this.data=data;
-              this.navigation=menudata
-              this.user=userdata
-            }) 
+      this._activatedRoute.data.subscribe(({ 
+          data, menudata, userdata })=> { 
+          this.data=data;
+          this.navigation=menudata
+          this.user=userdata
+      }) 
             
-
-          this._navigationService.navigation$
-              .pipe(takeUntil(this._unsubscribeAll))
-              .subscribe((navigation: Navigation) => {
-              this.navigation = navigation;
-          });
+      this._navigationService.navigation$
+          .pipe(takeUntil(this._unsubscribeAll))
+          .subscribe((navigation: Navigation) => {
+           this.navigation = navigation;
+      });
 
         this._fuseMediaWatcherService.onMediaChange$
           .pipe(takeUntil(this._unsubscribeAll))

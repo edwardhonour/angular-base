@@ -7,9 +7,7 @@ import { Navigation } from 'app/core/navigation/navigation.types';
 import { NavigationService } from 'app/core/navigation/navigation.service';
 import { DataService } from 'app/data.service';
 import { FormBuilder } from '@angular/forms';
-import {  FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-dashboard-template',
@@ -123,9 +121,6 @@ export class DashboardTemplateComponent implements OnInit , OnDestroy {
     }
 
     postForm() {
-      //
-      // Post Edit
-      //
       this._dataService.postForm("post-edit-form", this.data['formData']).subscribe((data:any)=>{
           this.data=data;
           this.editing='N';

@@ -63,6 +63,10 @@ import { AssetDashboardComponent } from './assets/asset-dashboard/asset-dashboar
 import { ListTemplateComponent } from './template/list-template/list-template.component';
 import { DashboardTemplateComponent } from './template/dashboard-template/dashboard-template.component';
 import { AddTemplateComponent } from './template/add-template/add-template.component';
+import { FirstComponentComponent } from './training/first-component/first-component.component';
+import { MiniComponentComponent } from './training/mini-component/mini-component.component';
+import { DynamicTemplateComponent } from './template/dynamic-template/dynamic-template.component';
+import { DynamicListComponent } from './template/dynamic-list/dynamic-list.component';
 
 const routerConfig: ExtraOptions = {
     preloadingStrategy       : PreloadAllModules,
@@ -82,7 +86,11 @@ const routerConfig: ExtraOptions = {
         AssetDashboardComponent,
         ListTemplateComponent,
         DashboardTemplateComponent,
-        AddTemplateComponent
+        AddTemplateComponent,
+        FirstComponentComponent,
+        MiniComponentComponent,
+        DynamicTemplateComponent,
+        DynamicListComponent
     ],
     imports     : [
         BrowserModule,

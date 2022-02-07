@@ -31,6 +31,9 @@ import { OverdueTestComponent } from './assets/overdue-test/overdue-test.compone
 import { ListTemplateComponent } from './template/list-template/list-template.component';
 import { DashboardTemplateComponent } from './template/dashboard-template/dashboard-template.component';
 import { AddTemplateComponent } from './template/add-template/add-template.component';
+import { FirstComponentComponent } from './training/first-component/first-component.component';
+import { DynamicTemplateComponent } from './template/dynamic-template/dynamic-template.component';
+import { DynamicListComponent } from './template/dynamic-list/dynamic-list.component';
 
 // @formatter:off
 /* eslint-disable max-len */
@@ -56,6 +59,9 @@ export const appRoutes: Route[] = [
         children: [
             {path: 'sadmin', component: AssetDashboardComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
             {path: 'active-assessments', component: ActiveAssessmentsComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
+            {path: 'dynamic-list', component: DynamicTemplateComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
+            {path: 'dynamic-list2', component: DynamicListComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
+            {path: 'first-component', component: FirstComponentComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
             {path: 'asset-search', component: AssetSearchComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
             {path: 'facility-asset-dashboard', component: FacilityAssetDashboardComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
             {path: 'facility-search', component: FacilitySearchComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
