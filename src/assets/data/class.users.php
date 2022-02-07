@@ -10,13 +10,13 @@ class USERS {
          $this->X=new OracleDB();
     }
 
-    funtion getUsers($data) {
+    function getUsers($data) {
 	    $output=array();
         $output['uid']=$data['uid'];
         $sql="SELECT * FROM FPS_USER WHERE REGION_ID = 5 ORDER BY USER_NAME";
         $list=$this->X->sql($sql);
         $output['list']=$list;
-        return['output'];		
+        return $output;		
 	}
     function getUserDashboard($data) {
 		
