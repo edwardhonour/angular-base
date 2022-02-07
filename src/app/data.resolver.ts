@@ -45,6 +45,16 @@ export class DataResolver implements Resolve<boolean> {
         this.path = state.url;
       }
 
+      console.log("Path Is")
+      console.log(this.path)
+      if (this.path=="/dynamic-list2") {
+        this.id="SELECT * FROM FPS_USER WHERE REGION_ID = ";
+        this.id+=" (SELECT REGION_ID FROM FPS_USER WHERE USER_ID = :uid) ORDER BY USER_NAME";
+      }
+      if (this.path.substr(0,14)==="/dynamic-form2") {
+            this.id="SELECT * FROM FPS_USER WHERE USER_ID = :id";
+            this.id2="SELECT BUILDING_NBR FROM RWH_DIM_FACILITY WHERE FACILITY_ID = :id";
+      }
     //--
     //-- This code doesn't look like it should work since the only variable set above is the
     //-- path variable.  But, it inexplicably populates the id varaiables so don't fix it.
