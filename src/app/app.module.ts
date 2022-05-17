@@ -67,6 +67,14 @@ import { FirstComponentComponent } from './training/first-component/first-compon
 import { MiniComponentComponent } from './training/mini-component/mini-component.component';
 import { DynamicTemplateComponent } from './template/dynamic-template/dynamic-template.component';
 import { DynamicListComponent } from './template/dynamic-list/dynamic-list.component';
+import { TsdHomeComponent } from './tsd/tsd-home/tsd-home.component';
+import { ShowFacilityComponent } from './tsd/show-facility/show-facility.component';
+import { FacilityListComponent } from './tsd/facility-list/facility-list.component';
+import { FacilityDashboardComponent } from './tsd/facility-dashboard/facility-dashboard.component';
+import { TicketListComponent } from './tsd/ticket-list/ticket-list.component';
+import { ContactListComponent } from './tsd/contact-list/contact-list.component';
+import { AddTicketComponent } from './tsd/add-ticket/add-ticket.component';
+import { TicketDashboardComponent } from './tsd/ticket-dashboard/ticket-dashboard.component';
 
 const routerConfig: ExtraOptions = {
     preloadingStrategy       : PreloadAllModules,
@@ -90,7 +98,15 @@ const routerConfig: ExtraOptions = {
         FirstComponentComponent,
         MiniComponentComponent,
         DynamicTemplateComponent,
-        DynamicListComponent
+        DynamicListComponent,
+        TsdHomeComponent,
+        ShowFacilityComponent,
+        FacilityListComponent,
+        FacilityDashboardComponent,
+        TicketListComponent,
+        ContactListComponent,
+        AddTicketComponent,
+        TicketDashboardComponent
     ],
     imports     : [
         BrowserModule,

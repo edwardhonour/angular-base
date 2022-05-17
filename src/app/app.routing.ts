@@ -34,13 +34,19 @@ import { AddTemplateComponent } from './template/add-template/add-template.compo
 import { FirstComponentComponent } from './training/first-component/first-component.component';
 import { DynamicTemplateComponent } from './template/dynamic-template/dynamic-template.component';
 import { DynamicListComponent } from './template/dynamic-list/dynamic-list.component';
+import { TsdHomeComponent } from './tsd/tsd-home/tsd-home.component';
+import { ShowFacilityComponent } from './tsd/show-facility/show-facility.component';
+import { TicketListComponent } from './tsd/ticket-list/ticket-list.component';
+import { FacilityListComponent } from './tsd/facility-list/facility-list.component';
+import { TicketDashboardComponent } from './tsd/ticket-dashboard/ticket-dashboard.component';
+import { AddTicketComponent } from './tsd/add-ticket/add-ticket.component';
 
 // @formatter:off
 /* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 export const appRoutes: Route[] = [
-    {path: '', pathMatch : 'full', redirectTo: 'list-template'},
-    {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'list-template'},
+    {path: '', pathMatch : 'full', redirectTo: 'tsd-home'},
+    {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'tsd-home'},
     {
         path: '',
         canActivate: [AuthGuardOriginal],
@@ -58,6 +64,13 @@ export const appRoutes: Route[] = [
         //--
         children: [
             {path: 'sadmin', component: AssetDashboardComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
+            {path: 'tsd-home', component: TsdHomeComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
+            {path: 'show-facility', component: ShowFacilityComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
+            {path: 'ticket-list', component: TicketListComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
+            {path: 'facility-list', component: FacilityListComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
+            {path: 'facility-dashboard', component: ActiveAssessmentsComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
+            {path: 'ticket-dashboard/:id', component: TicketDashboardComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
+            {path: 'add-ticket', component: AddTicketComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
             {path: 'active-assessments', component: ActiveAssessmentsComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
             {path: 'dynamic-list', component: DynamicTemplateComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },
             {path: 'dynamic-list2', component: DynamicListComponent, resolve: { menudata: MenuResolver, data: DataResolver, userdata: UserResolver }, },

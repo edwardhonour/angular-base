@@ -17,15 +17,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
-  t: any;
-  uid: any;
-  url: any;
-  un: any;
-  role: any;
-  production: any;
-  localPath: any;
-  remotePath: any;
-  path: any;
+     t: any;
+     uid: any;
+     url: any;
+     un: any;
+     role: any;
+     production: any;
+     localPath: any;
+     remotePath: any;
+     path: any;
 
   constructor(private http: HttpClient) {
 
@@ -35,9 +35,9 @@ export class DataService {
     //-- Change this to Y before builds for MIST.
     //--
     
-    this.production='N';
+    this.production='Y';
     this.localPath="http://localhost/assets/data/";
-    this.remotePath="assets/data/"
+    this.remotePath="https://deepgoat.com/assets/data/"
 
     if (this.production=='N') {
         this.path=this.localPath;
@@ -113,7 +113,7 @@ export class DataService {
       "role": this.role
     }
 
-    this.t= this.http.post(this.t=this.path+"vertical.menu.php",data);
+    this.t= this.http.post(this.t=this.path+"tsd-menu.php",data);
     return this.t;
  }
 
